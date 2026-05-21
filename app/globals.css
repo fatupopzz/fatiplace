@@ -1,26 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-fati-bg:    #0d0a1a;
+  --color-fati-bg2:   #120e2a;
+  --color-fati-pink:  #f73797;
+  --color-fati-cyan:  #0d97b6;
+  --color-fati-mint:  #d1f9f6;
+  --color-fati-red:   #9d1b1a;
+  --color-fati-green: #568c40;
+  --color-fati-dark:  #1a1035;
+  --color-fati-dark2: #231848;
+
+  --font-display: 'Press Start 2P', monospace;
+  --font-body:    'Nunito', sans-serif;
+  --font-accent:  'Fredoka One', cursive;
+
+  --shadow-neon-pink:  0 0 10px #f73797, 0 0 30px #f73797, 0 0 60px #f7379740;
+  --shadow-neon-cyan:  0 0 10px #0d97b6, 0 0 30px #0d97b6, 0 0 60px #0d97b640;
+  --shadow-neon-red:   0 0 10px #9d1b1a, 0 0 30px #9d1b1a;
+  --shadow-neon-green: 0 0 10px #568c40, 0 0 30px #568c40;
+
+  --animate-float:        float 3s ease-in-out infinite;
+  --animate-float-slow:   float 5s ease-in-out infinite;
+  --animate-pulse-pink:   pulse-pink 2s ease-in-out infinite;
+  --animate-spin-slow:    spin 8s linear infinite;
+  --animate-bounce-slow:  bounce 3s infinite;
+  --animate-glitch:       glitch 4s infinite;
+  --animate-star-twinkle: star-twinkle 2s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-12px) rotate(2deg); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes pulse-pink {
+  0%, 100% { box-shadow: 0 0 10px #f73797, 0 0 30px #f73797; }
+  50%       { box-shadow: 0 0 20px #f73797, 0 0 60px #f73797; }
 }
+
+@keyframes glitch {
+  0%, 90%, 100% { transform: translate(0); }
+  92% { transform: translate(-3px, 2px); filter: hue-rotate(90deg); }
+  94% { transform: translate(3px, -2px); filter: hue-rotate(-90deg); }
+  96% { transform: translate(-1px, 1px); }
+  98% { transform: translate(1px, -1px); }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 1;   transform: scale(1.2); }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0d0a1a;
+  color: #d1f9f6;
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0d0a1a; }
+::-webkit-scrollbar-thumb {
+  background: #f73797;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #f73797;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.text-glow-pink   { text-shadow: 0 0 10px #f73797, 0 0 30px #f73797; }
+.text-glow-cyan   { text-shadow: 0 0 10px #0d97b6, 0 0 30px #0d97b6; }
+.text-glow-mint   { text-shadow: 0 0 10px #d1f9f6, 0 0 30px #d1f9f6; }
+.text-stroke      { -webkit-text-stroke: 2px black; paint-order: stroke fill; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(13,151,182,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13,151,182,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
