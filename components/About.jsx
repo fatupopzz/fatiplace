@@ -75,7 +75,7 @@ export default function About() {
                 Me apasiona construir interfaces que combinen buen diseño con código limpio. 
                 Cuando no estoy programando, estoy personalizando mi setup de{" "}
                 <span className="font-bold" style={{ color: "#568c40" }}>Fedora + Hyprland</span>, 
-                jugando en mi Switch OLED o experimentando con colores de cabello.
+                jugando en mi Switch OLED.
               </p>
 
               <p className="font-body text-base leading-relaxed" style={{ color: "#d1f9f6cc" }}>
