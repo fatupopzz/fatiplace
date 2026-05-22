@@ -123,11 +123,11 @@ export default function Hero() {
               Cuando tengas tu avatar PNG listo, reemplaza este bloque con:
               <Image src="/images/avatar.png" alt="Fatima Navarro" fill className="object-cover" />
             */}
-            <div className="relative z-10 text-center px-4">
-              <p className="font-display text-[8px] mb-2" style={{ color: "#0d97b680" }}>TU AVATAR</p>
-              <p className="font-display text-[8px]" style={{ color: "#f73797" }}>AQUI ✦</p>
-              <p className="font-display text-[7px] mt-2" style={{ color: "#d1f9f650" }}>/public/images/avatar.png</p>
-            </div>
+           <img
+  src="/images/avatar.png"
+  alt="Fatima Navarro"
+  className="w-full h-full object-cover"
+/>
             <span className="absolute top-2 left-2 text-xs select-none" style={{ color: "#d1f9f6" }}>✦</span>
             <span className="absolute top-2 right-2 text-xs select-none" style={{ color: "#0d97b6" }}>✦</span>
             <span className="absolute bottom-2 left-2 text-xs select-none" style={{ color: "#f73797" }}>✦</span>
