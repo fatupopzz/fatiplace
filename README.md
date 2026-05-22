@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# fatiplace 
 
-## Getting Started
+Portafolio web personal desarrollado con Next.js y Tailwind CSS para el curso de Sistemas y Tecnologías Web - UVG, Semestre 1 2026.
 
-First, run the development server:
+## Demo
+
+- **Vercel:** https://fatiplace.vercel.app
+- **Dominio:** https://fatiplace.com
+
+## Tecnologías
+
+- Next.js 16 (App Router)
+- Tailwind CSS v4
+- JavaScript / React
+- Google Fonts (Press Start 2P, Nunito, Fredoka One)
+- Vercel (deployment)
+- Spaceship (dominio)
+
+## Secciones
+
+- **Hero** — Presentación con nombre, carrera, tecnologías y links
+- **Sobre mí** — Descripción personal, lo aprendido en el curso e intereses
+- **Proyectos** — Song select estilo Muse Dash con 5 proyectos del curso
+- **Contacto** — Formulario arcade + links de contacto
+
+## Proyectos incluidos
+
+| # | Proyecto | Tipo |
+|---|----------|------|
+| 1 | Lab 6 — Servidor Node.js nativo | Laboratorio |
+| 2 | Lab 7 — Express + Calculadora React | Laboratorio |
+| 3 | disci-app — Habit tracker gamificado | Laboratorio |
+| 4 | The Commonplace — Blog con DummyJSON API | Proyecto |
+| 5 | Not Balatro — Juego de cartas React | Proyecto Final |
+
+## Correr localmente
 
 ```bash
+git clone https://github.com/fatupopzz/fatiplace.git
+cd fatiplace
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Estudiante
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Fatima Navarro** — Carnet 24044  
+Ciencias de la Computación y Tecnologías de la Información  
+Universidad del Valle de Guatemala
