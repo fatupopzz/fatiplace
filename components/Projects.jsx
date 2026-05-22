@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 const PROJECTS = [
   {
@@ -43,7 +44,7 @@ const PROJECTS = [
     color: "#9d1b1a",
     icon: "✦",
     difficulty: "HARD",
-    repo: "https://github.com/fatupopzz/the-commonplace",
+    repo: "https://github.com/fatupopzz/blog-project",
     deploy: null,
   },
   {
@@ -73,10 +74,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative py-24 overflow-hidden" style={{ backgroundColor: "#0d0a1a" }}>
-      {/* Grid bg */}
       <div className="absolute inset-0 grid-bg opacity-40" />
-
-      {/* Blobs */}
       <div className="absolute top-10 right-10 w-80 h-80 rounded-full blur-[120px]" style={{ backgroundColor: "#f7379715" }} />
       <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full blur-[100px]" style={{ backgroundColor: "#0d97b615" }} />
 
@@ -91,10 +89,9 @@ export default function Projects() {
           <span className="text-xl animate-star-twinkle" style={{ color: "#d1f9f6" }}>✦</span>
         </div>
 
-        {/* Song select layout */}
         <div className="flex flex-col lg:flex-row gap-6">
 
-          {/* LEFT: song list */}
+          {/* LEFT: lista */}
           <div className="flex flex-col gap-3 lg:w-80 flex-shrink-0">
             {PROJECTS.map((p, i) => (
               <button
@@ -103,28 +100,20 @@ export default function Projects() {
                 className="w-full text-left rounded-xl border-4 border-black p-4 transition-all duration-200 hover:-translate-y-1"
                 style={{
                   backgroundColor: active === i ? p.color : "#1a1035",
-                  boxShadow: active === i
-                    ? `4px 4px 0px black, 0 0 20px ${p.color}60`
-                    : "4px 4px 0px black",
+                  boxShadow: active === i ? `4px 4px 0px black, 0 0 20px ${p.color}60` : "4px 4px 0px black",
                   transform: active === i ? "translateY(-4px)" : undefined,
                 }}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{p.icon}</span>
                   <div className="flex-1 min-w-0">
-                    <p
-                      className="font-display text-[9px] truncate"
-                      style={{ color: active === i ? "black" : "#d1f9f6" }}
-                    >
+                    <p className="font-display text-[9px] truncate" style={{ color: active === i ? "black" : "#d1f9f6" }}>
                       {p.name}
                     </p>
                     <div className="flex items-center gap-2 mt-1">
                       <span
                         className="font-display text-[7px] px-2 py-0.5 rounded-full border border-black"
-                        style={{
-                          backgroundColor: DIFFICULTY_COLORS[p.difficulty],
-                          color: "white",
-                        }}
+                        style={{ backgroundColor: DIFFICULTY_COLORS[p.difficulty], color: "white" }}
                       >
                         {p.difficulty}
                       </span>
@@ -135,47 +124,34 @@ export default function Projects() {
                       )}
                     </div>
                   </div>
-                  {active === i && (
-                    <span className="font-display text-[10px] text-black">▶</span>
-                  )}
+                  {active === i && <span className="font-display text-[10px] text-black">▶</span>}
                 </div>
               </button>
             ))}
           </div>
 
-          {/* RIGHT: selected project detail */}
+          {/* RIGHT: detalle */}
           <div
             className="flex-1 rounded-2xl border-4 border-black p-6 shadow-[6px_6px_0px_black] transition-all duration-300"
             style={{ backgroundColor: "#1a1035" }}
           >
-            {/* Screenshot placeholder */}
+            {/* Screenshot */}
             <div
-              className="w-full h-40 rounded-xl border-4 border-black mb-5 flex items-center justify-center overflow-hidden"
-              style={{
-                backgroundColor: "#231848",
-                boxShadow: `0 0 20px ${project.color}40`,
-              }}
+              className="relative w-full h-40 rounded-xl border-4 border-black mb-5 overflow-hidden"
+              style={{ backgroundColor: "#231848", boxShadow: `0 0 20px ${project.color}40` }}
             >
-              {/*
-                Reemplaza con:
-                <Image src={`/images/${project.id}.png`} alt={project.name} fill className="object-cover" />
-              */}
-              <div className="text-center">
-                <p className="font-display text-[8px] mb-1" style={{ color: `${project.color}` }}>
-                  {project.icon} {project.name}
-                </p>
-                <p className="font-display text-[7px]" style={{ color: "#d1f9f650" }}>
-                  /public/images/{project.id}.png
-                </p>
-              </div>
+              <Image
+                src={`/images/${project.id}.png`}
+                alt={project.name}
+                fill
+                className="object-cover"
+                onError={(e) => { e.target.style.display = "none"; }}
+              />
             </div>
 
-            {/* Title + badge */}
+            {/* Título + badge */}
             <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
-              <h3
-                className="font-display text-sm leading-tight"
-                style={{ color: project.color, textShadow: `0 0 10px ${project.color}` }}
-              >
+              <h3 className="font-display text-sm leading-tight" style={{ color: project.color, textShadow: `0 0 10px ${project.color}` }}>
                 {project.name}
               </h3>
               <div className="flex gap-2">
@@ -193,7 +169,7 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Description */}
+            {/* Descripción */}
             <p className="font-body text-sm leading-relaxed mb-4" style={{ color: "#d1f9f6aa" }}>
               {project.description}
             </p>
