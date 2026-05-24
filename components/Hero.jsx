@@ -107,7 +107,7 @@ export default function Hero() {
           <div className="absolute rounded-full border-2 border-dashed animate-spin-slow" style={{ inset: "-36px", borderColor: "#0d97b630", animationDirection: "reverse" }} />
 
           <div
-            className="relative w-44 h-44 sm:w-64 sm:h-64 rounded-2xl border-4 border-black overflow-hidden animate-float"
+           className="relative w-36 h-36 sm:w-64 sm:h-64 rounded-2xl border-4 border-black overflow-hidden animate-float"
             style={{ backgroundColor: "#1a1035", boxShadow: "0 0 10px #f73797, 0 0 30px #f73797" }}
           >
             <img src="/images/avatar.png" alt="Fatima Navarro" className="w-full h-full object-cover" />
