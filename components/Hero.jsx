@@ -79,8 +79,7 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
-            <a
+          <div className="flex gap-4 justify-center lg:justify-start flex-wrap mb-8">            <a
               href="https://github.com/fatupopzz"
               target="_blank"
               rel="noopener noreferrer"
@@ -126,7 +125,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
+     <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1 animate-bounce">
         <span className="font-display text-[8px] tracking-widest" style={{ color: "#d1f9f640" }}>SCROLL</span>
         <span className="text-xl" style={{ color: "#f73797" }}>↓</span>
       </div>
