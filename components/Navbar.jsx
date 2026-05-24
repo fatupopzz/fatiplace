@@ -30,10 +30,12 @@ export default function Navbar() {
     >
       <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="font-display text-sm animate-glitch" style={{ color: "#f73797", textShadow: "0 0 10px #f73797" }}>
-          FATIPLACE
-        </a>
-
+        <a href="#hero" className="flex items-center gap-2">
+  <img src="/images/estrella.png" alt="fatiplace" className="w-6 h-6 object-contain" />
+  <span className="font-display text-sm animate-glitch" style={{ color: "#f73797", textShadow: "0 0 10px #f73797" }}>
+    FATIPLACE
+  </span>
+</a>
         {/* Desktop */}
         <ul className="hidden md:flex gap-8">
           {LINKS.map((link) => (
