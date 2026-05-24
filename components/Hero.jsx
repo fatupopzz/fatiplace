@@ -27,11 +27,9 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg pt-20"
     >
-      {/* Glow blobs */}
       <div className="absolute top-20 left-10 w-72 h-72 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: "#f7379720" }} />
       <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: "#0d97b620", animationDelay: "1s" }} />
 
-      {/* Floating stars */}
       {STARS.map((pos, i) => (
         <span
           key={i}
@@ -44,16 +42,14 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-14">
 
-        {/* LEFT */}
-        <div className="flex-1 text-center lg:text-left">
+        {/* LEFT: texto — siempre primero en mobile */}
+        <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
 
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1 mb-6 border-2" style={{ backgroundColor: "#f7379720", borderColor: "#f73797" }}>
             <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: "#f73797" }} />
             <span className="font-display text-[9px] tracking-widest" style={{ color: "#f73797" }}>PLAYER 1 READY</span>
           </div>
 
-          {/* Nombre */}
           <h1 className="font-display text-3xl sm:text-4xl text-white text-stroke leading-tight mb-1 animate-glitch">
             FATIMA
           </h1>
@@ -61,20 +57,17 @@ export default function Hero() {
             NAVARRO
           </h1>
 
-          {/* Carrera */}
           <div className="flex items-center gap-2 justify-center lg:justify-start mb-5">
             <span className="font-display text-[10px]" style={{ color: "#0d97b6" }}>▶</span>
             <p className="font-accent text-xl" style={{ color: "#d1f9f6" }}>CS &amp; IT Student @ UVG</p>
           </div>
 
-          {/* Descripción */}
           <p className="font-body text-base max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed" style={{ color: "#d1f9f6bb" }}>
             Desarrolladora apasionada por interfaces, sistemas Linux y experiencia de usuario.
             Construyo cosas que se ven bien{" "}
             <em className="not-italic font-bold" style={{ color: "#f73797" }}>y</em> funcionan mejor.
           </p>
 
-          {/* Tech badges */}
           <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-9">
             {TECHS.map((tech) => (
               <span
@@ -86,7 +79,6 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* CTAs */}
           <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
             <a
               href="https://github.com/fatupopzz"
@@ -109,25 +101,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* RIGHT: avatar */}
-        <div className="relative flex-shrink-0">
+        {/* RIGHT: avatar — va abajo en mobile */}
+        <div className="relative flex-shrink-0 order-1 lg:order-2">
           <div className="absolute rounded-full border-4 border-dashed animate-spin-slow" style={{ inset: "-20px", borderColor: "#f7379740" }} />
           <div className="absolute rounded-full border-2 border-dashed animate-spin-slow" style={{ inset: "-36px", borderColor: "#0d97b630", animationDirection: "reverse" }} />
 
           <div
-            className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl border-4 border-black overflow-hidden animate-float flex items-center justify-center"
+            className="relative w-44 h-44 sm:w-64 sm:h-64 rounded-2xl border-4 border-black overflow-hidden animate-float"
             style={{ backgroundColor: "#1a1035", boxShadow: "0 0 10px #f73797, 0 0 30px #f73797" }}
           >
-            <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #f7379720, transparent, #0d97b620)" }} />
-            {/*
-              Cuando tengas tu avatar PNG listo, reemplaza este bloque con:
-              <Image src="/images/avatar.png" alt="Fatima Navarro" fill className="object-cover" />
-            */}
-           <img
-  src="/images/avatar.png"
-  alt="Fatima Navarro"
-  className="w-full h-full object-cover"
-/>
+            <img src="/images/avatar.png" alt="Fatima Navarro" className="w-full h-full object-cover" />
             <span className="absolute top-2 left-2 text-xs select-none" style={{ color: "#d1f9f6" }}>✦</span>
             <span className="absolute top-2 right-2 text-xs select-none" style={{ color: "#0d97b6" }}>✦</span>
             <span className="absolute bottom-2 left-2 text-xs select-none" style={{ color: "#f73797" }}>✦</span>
@@ -143,7 +126,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
         <span className="font-display text-[8px] tracking-widest" style={{ color: "#d1f9f640" }}>SCROLL</span>
         <span className="text-xl" style={{ color: "#f73797" }}>↓</span>
