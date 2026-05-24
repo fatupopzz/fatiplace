@@ -91,7 +91,7 @@ export default function About() {
               style={{ backgroundColor: "#231848" }}
             >
               <div className="flex items-center gap-2 mb-4">
-                <span style={{ color: "#0d97b6" }}>▶</span>
+               <img src="/images/estrella.png" alt="star" className="w-4 h-4 object-contain" />
                 <h3 className="font-display text-[10px] text-white">NEXT LEVEL</h3>
               </div>
               <p className="font-body text-sm mb-3" style={{ color: "#d1f9f680" }}>Áreas que quiero seguir aprendiendo:</p>
