@@ -68,7 +68,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/fatimanav"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 font-body font-bold text-sm px-4 py-3 rounded-xl border-4 border-black shadow-[3px_3px_0px_black] hover:shadow-[5px_5px_0px_black] hover:-translate-y-1 transition-all duration-200"

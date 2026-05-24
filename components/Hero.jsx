@@ -89,7 +89,7 @@ export default function Hero() {
               ⬡ GITHUB
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/fatimanav"
               target="_blank"
               rel="noopener noreferrer"
               className="font-display text-[10px] text-white px-6 py-3 border-4 border-black shadow-[4px_4px_0px_black] hover:shadow-[6px_6px_0px_black] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-200"
