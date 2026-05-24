@@ -1,39 +1,39 @@
-# fatiplace 
+# fatiplace ✦
 
-Portafolio web personal desarrollado con Next.js y Tailwind CSS para el curso de Sistemas y Tecnologías Web - UVG, Semestre 1 2026.
+Personal web portfolio built with Next.js and Tailwind CSS for the Web Systems and Technologies course — UVG, Semester 1 2026.
 
-## Demo
+## Live Demo
 
 - **Vercel:** https://fatiplace.vercel.app
-- **Dominio:** https://fatiplace.com
+- **Domain:** https://fatiplace.com
 
-## Tecnologías
+## Tech Stack
 
 - Next.js 16 (App Router)
 - Tailwind CSS v4
 - JavaScript / React
 - Google Fonts (Press Start 2P, Nunito, Fredoka One)
 - Vercel (deployment)
-- Spaceship (dominio)
+- Spaceship (custom domain)
 
-## Secciones
+## Sections
 
-- **Hero** — Presentación con nombre, carrera, tecnologías y links
-- **Sobre mí** — Descripción personal, lo aprendido en el curso e intereses
-- **Proyectos** — Song select estilo Muse Dash con 5 proyectos del curso
-- **Contacto** — Formulario arcade + links de contacto
+- **Hero** — Introduction with name, degree, tech stack and links
+- **About** — Personal description, course learnings and interests
+- **Projects** — Muse Dash song-select style showcase with 5 course projects
+- **Contact** — Arcade-styled form and contact links
 
-## Proyectos incluidos
+## Projects
 
-| # | Proyecto | Tipo |
-|---|----------|------|
-| 1 | Lab 6 — Servidor Node.js nativo | Laboratorio |
-| 2 | Lab 7 — Express + Calculadora React | Laboratorio |
-| 3 | disci-app — Habit tracker gamificado | Laboratorio |
-| 4 | The Commonplace — Blog con DummyJSON API | Proyecto |
-| 5 | Not Balatro — Juego de cartas React | Proyecto Final |
+| # | Project | Type |
+|---|---------|------|
+| 1 | Lab 6 — Native Node.js Server | Lab |
+| 2 | Lab 7 — Express + React Calculator | Lab |
+| 3 | disci-app — Gamified Habit Tracker | Lab |
+| 4 | The Commonplace — Blog with DummyJSON API | Project |
+| 5 | Not Balatro — React Card Game | Final Project |
 
-## Correr localmente
+## Run Locally
 
 ```bash
 git clone https://github.com/fatupopzz/fatiplace.git
@@ -42,10 +42,10 @@ npm install
 npm run dev
 ```
 
-Abrir http://localhost:3000
+Open http://localhost:3000
 
-## Estudiante
+## Student
 
-**Fatima Navarro** — Carnet 24044  
-Ciencias de la Computación y Tecnologías de la Información  
+**Fatima Navarro** — ID 24044  
+Computer Science and Information Technologies  
 Universidad del Valle de Guatemala

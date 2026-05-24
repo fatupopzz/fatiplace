@@ -121,12 +121,9 @@ export default function About() {
               <div className="space-y-3">
                 {LEARNED.map((item) => (
                   <div key={item.label} className="flex items-center gap-3 group">
-                    <span
-                      className="w-8 h-8 rounded-lg border-2 border-black flex items-center justify-center text-xs font-bold flex-shrink-0 group-hover:scale-110 transition-transform"
-                      style={{ backgroundColor: "#f73797", color: "white" }}
-                    >
-                      {item.icon}
-                    </span>
+                   <div className="w-8 h-8 flex-shrink-0 group-hover:scale-110 transition-transform">
+  <img src="/images/estrella.png" alt="star" className="w-full h-full object-contain" />
+</div>
                     <div>
                       <p className="font-body font-bold text-sm text-white">{item.label}</p>
                       <p className="font-body text-xs" style={{ color: "#d1f9f670" }}>{item.desc}</p>

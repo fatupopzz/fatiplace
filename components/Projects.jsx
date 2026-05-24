@@ -105,7 +105,7 @@ export default function Projects() {
                 }}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-xl">{p.icon}</span>
+                 <img src="/images/estrella.png" alt="star" className="w-6 h-6 object-contain" />
                   <div className="flex-1 min-w-0">
                     <p className="font-display text-[9px] truncate" style={{ color: active === i ? "black" : "#d1f9f6" }}>
                       {p.name}
