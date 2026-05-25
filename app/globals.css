@@ -1,100 +1,375 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-fati-bg:    #0d0a1a;
-  --color-fati-bg2:   #120e2a;
-  --color-fati-pink:  #f73797;
-  --color-fati-cyan:  #0d97b6;
-  --color-fati-mint:  #d1f9f6;
-  --color-fati-red:   #9d1b1a;
-  --color-fati-green: #568c40;
-  --color-fati-dark:  #1a1035;
-  --color-fati-dark2: #231848;
-
-  --font-display: 'Press Start 2P', monospace;
-  --font-body:    'Nunito', sans-serif;
-  --font-accent:  'Fredoka One', cursive;
-
-  --shadow-neon-pink:  0 0 10px #f73797, 0 0 30px #f73797, 0 0 60px #f7379740;
-  --shadow-neon-cyan:  0 0 10px #0d97b6, 0 0 30px #0d97b6, 0 0 60px #0d97b640;
-  --shadow-neon-red:   0 0 10px #9d1b1a, 0 0 30px #9d1b1a;
-  --shadow-neon-green: 0 0 10px #568c40, 0 0 30px #568c40;
-
-  --animate-float:        float 3s ease-in-out infinite;
-  --animate-float-slow:   float 5s ease-in-out infinite;
-  --animate-pulse-pink:   pulse-pink 2s ease-in-out infinite;
-  --animate-spin-slow:    spin 8s linear infinite;
-  --animate-bounce-slow:  bounce 3s infinite;
-  --animate-glitch:       glitch 4s infinite;
-  --animate-star-twinkle: star-twinkle 2s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(-2deg); }
-  50%       { transform: translateY(-12px) rotate(2deg); }
-}
-
-@keyframes pulse-pink {
-  0%, 100% { box-shadow: 0 0 10px #f73797, 0 0 30px #f73797; }
-  50%       { box-shadow: 0 0 20px #f73797, 0 0 60px #f73797; }
-}
-
-@keyframes glitch {
-  0%, 90%, 100% { transform: translate(0); }
-  92% { transform: translate(-3px, 2px); filter: hue-rotate(90deg); }
-  94% { transform: translate(3px, -2px); filter: hue-rotate(-90deg); }
-  96% { transform: translate(-1px, 1px); }
-  98% { transform: translate(1px, -1px); }
-}
-
-@keyframes star-twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(0.8); }
-  50%       { opacity: 1;   transform: scale(1.2); }
-}
-
-* { box-sizing: border-box; }
-
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0d0a1a;
-  color: #d1f9f6;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif !important;
+  font-size: 11px !important;
+  background-color: #3a6ea5 !important;
+  color: #1a1a1a !important;
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0d0a1a; }
-::-webkit-scrollbar-thumb {
-  background: #f73797;
-  border-radius: 4px;
-  box-shadow: 0 0 8px #f73797;
-}
+/* kill Next.js defaults */
+a { color: inherit; }
 
+/* ── XP DESKTOP BG PATTERN ── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.03) 2px,
-    rgba(0,0,0,0.03) 4px
-  );
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 0;
 }
 
-.text-glow-pink   { text-shadow: 0 0 10px #f73797, 0 0 30px #f73797; }
-.text-glow-cyan   { text-shadow: 0 0 10px #0d97b6, 0 0 30px #0d97b6; }
-.text-glow-mint   { text-shadow: 0 0 10px #d1f9f6, 0 0 30px #d1f9f6; }
-.text-stroke      { -webkit-text-stroke: 2px black; paint-order: stroke fill; }
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 16px; }
+::-webkit-scrollbar-track { background: #ece9d8; }
+::-webkit-scrollbar-thumb { background: linear-gradient(to right, #e0ddd5, #c4c0b8); border: 1px solid #aca899; }
 
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(13,151,182,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13,151,182,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* ══════════════════════════════════
+   XP WINDOW SYSTEM
+══════════════════════════════════ */
+.xp-titlebar {
+  background: linear-gradient(to bottom,
+    #2f84d0 0%, #0058c0 8%, #0a46a5 40%, #0058c0 88%, #1067cc 100%) !important;
+  color: white !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding: 4px 6px 4px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  border-radius: 6px 6px 0 0 !important;
+  border: 1px solid #003c9b !important;
+  border-bottom: 1px solid #0040a0 !important;
+  user-select: none !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6) !important;
+  min-height: 26px !important;
+}
+
+.xp-titlebar-buttons {
+  margin-left: auto !important;
+  display: flex !important;
+  gap: 2px !important;
+}
+
+.xp-btn-min, .xp-btn-max, .xp-btn-close {
+  width: 21px !important;
+  height: 21px !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(0,0,0,0.5) !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+.xp-btn-close { background: linear-gradient(to bottom, #f07070, #c42828) !important; color: white !important; }
+.xp-btn-min   { background: linear-gradient(to bottom, #f0e870, #c8be40) !important; color: #4a3a00 !important; }
+.xp-btn-max   { background: linear-gradient(to bottom, #78d060, #3ca820) !important; color: #0a3a00 !important; }
+
+.xp-window {
+  background: #ece9d8 !important;
+  border: 1px solid #6593cf !important;
+  border-top: none !important;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.5) !important;
+  border-radius: 0 0 4px 4px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* ── 3D BUTTON ── */
+.xp-button {
+  background: linear-gradient(to bottom, #f4f2ec 0%, #e4e0d8 49%, #d8d4cc 51%, #ece9e1 100%) !important;
+  border-top: 1px solid #ffffff !important;
+  border-left: 1px solid #ffffff !important;
+  border-right: 1px solid #7a7060 !important;
+  border-bottom: 1px solid #7a7060 !important;
+  padding: 3px 10px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  border-radius: 3px !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  white-space: nowrap !important;
+  line-height: 1.4 !important;
+}
+.xp-button:hover {
+  background: linear-gradient(to bottom, #fefcf8 0%, #ede9e0 49%, #e2ddd4 51%, #f4f1e8 100%) !important;
+}
+.xp-button:active {
+  border-top-color: #7a7060 !important;
+  border-left-color: #7a7060 !important;
+  border-right-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  background: linear-gradient(to bottom, #d8d4cc, #e4e0d8) !important;
+}
+
+/* ── INPUT ── */
+.xp-input {
+  border-top: 2px solid #6b6b6b !important;
+  border-left: 2px solid #6b6b6b !important;
+  border-right: 2px solid #d4d0c8 !important;
+  border-bottom: 2px solid #d4d0c8 !important;
+  background: white !important;
+  padding: 3px 5px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  font-size: 11px !important;
+  outline: none !important;
+  width: 100% !important;
+  color: #1a1a1a !important;
+}
+.xp-input:focus {
+  border-top-color: #3169c6 !important;
+  border-left-color: #3169c6 !important;
+}
+
+/* ── GROUPBOX ── */
+.xp-groupbox {
+  border: 1px solid #aca899 !important;
+  border-radius: 3px !important;
+  padding: 14px 10px 8px !important;
+  position: relative !important;
+  background: #ece9d8 !important;
+}
+.xp-groupbox-label {
+  position: absolute !important;
+  top: -8px !important;
+  left: 8px !important;
+  background: #ece9d8 !important;
+  padding: 0 4px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+  color: #1a1a1a !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+}
+
+/* ── TAG/CHIP ── */
+.xp-tag {
+  background: linear-gradient(to bottom, #f4f2ec, #e0ddd5) !important;
+  border-top: 1px solid #ffffff !important;
+  border-left: 1px solid #ffffff !important;
+  border-right: 1px solid #7a7060 !important;
+  border-bottom: 1px solid #7a7060 !important;
+  padding: 1px 6px !important;
+  font-size: 11px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  border-radius: 2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  color: #1a1a1a !important;
+}
+
+/* ── LISTBOX ── */
+.xp-listitem {
+  padding: 3px 6px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  font-size: 11px !important;
+  border-bottom: 1px solid #f0ede4 !important;
+  background: white !important;
+  color: #1a1a1a !important;
+}
+.xp-listitem:hover { background: #c9d8ea !important; }
+.xp-listitem.selected { background: #3169c6 !important; color: white !important; }
+
+/* ── STATUSBAR ── */
+.xp-statusbar {
+  background: linear-gradient(to bottom, #d4d0c8, #ece9e1) !important;
+  border-top: 1px solid #aca899 !important;
+  padding: 2px 6px !important;
+  font-size: 11px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+}
+.xp-statusbar-panel {
+  border-top: 1px solid #7a7060 !important;
+  border-left: 1px solid #7a7060 !important;
+  border-right: 1px solid #d4d0c8 !important;
+  border-bottom: 1px solid #d4d0c8 !important;
+  padding: 0 6px !important;
+  font-size: 11px !important;
+  min-width: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+}
+
+/* ── TASKBAR ── */
+.xp-taskbar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  background: linear-gradient(to bottom,
+    #1f5fce 0%, #3a85e8 4%, #1856c8 6%, #1652c0 95%, #0e3fa8 100%) !important;
+  height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-top: 1px solid #2266dd !important;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.5) !important;
+}
+
+.xp-start-btn {
+  height: 100% !important;
+  padding: 0 14px 0 8px !important;
+  background: linear-gradient(to bottom,
+    #59b54c 0%, #3ea330 40%, #348f28 60%, #3ea330 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  border: none !important;
+  border-right: 1px solid #2a7020 !important;
+  color: white !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: bold !important;
+  font-style: italic !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+  letter-spacing: 0.02em !important;
+  flex-shrink: 0 !important;
+}
+
+.xp-task-btn {
+  height: 22px !important;
+  padding: 0 8px !important;
+  background: linear-gradient(to bottom, #1a5abf, #2a72e0) !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  border-bottom-color: rgba(0,0,0,0.3) !important;
+  border-radius: 3px !important;
+  color: white !important;
+  font-size: 11px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.4) !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+.xp-task-btn:hover {
+  background: linear-gradient(to bottom, #2a6adf, #3a82f0) !important;
+}
+
+.xp-tray {
+  margin-left: auto !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 10px !important;
+  background: linear-gradient(to bottom,
+    #1048b8, #1858d0 5%, #1048b8 95%, #0a3090 100%) !important;
+  border-left: 1px solid rgba(255,255,255,0.2) !important;
+  gap: 6px !important;
+  color: white !important;
+  font-size: 11px !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  flex-shrink: 0 !important;
+}
+
+/* ── MENUBAR ── */
+.xp-menubar {
+  background: #ece9d8 !important;
+  border-bottom: 1px solid #aca899 !important;
+  padding: 2px 6px !important;
+  display: flex !important;
+  gap: 1px !important;
+}
+.xp-menuitem {
+  background: transparent !important;
+  border: none !important;
+  font-family: 'Tahoma', Arial, sans-serif !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  padding: 2px 6px !important;
+  border-radius: 2px !important;
+  color: #1a1a1a !important;
+}
+.xp-menuitem:hover {
+  background: #3169c6 !important;
+  color: white !important;
+}
+
+/* ── TICKER ── */
+.xp-ticker {
+  background: #000080 !important;
+  color: #00ff00 !important;
+  font-family: 'VT323', monospace !important;
+  font-size: 14px !important;
+  padding: 2px 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.06em !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9998 !important;
+}
+.xp-ticker span {
+  display: inline-block !important;
+  animation: marquee 28s linear infinite !important;
+  padding-right: 80px !important;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes marquee {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%       { transform: translateY(-9px) rotate(1deg); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50%       { transform: translateY(-7px) rotate(-1deg); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50%       { opacity: 1;   transform: scale(1.2); }
+}
+
+.animate-float      { animation: float 3s ease-in-out infinite !important; }
+.animate-float-slow { animation: float-slow 5s ease-in-out infinite !important; }
+.animate-spin-slow  { animation: spin 8s linear infinite !important; }
+.animate-star-twinkle { animation: star-twinkle 2s ease-in-out infinite !important; }
+
+/* ── SECTION SPACING ── */
+.xp-section {
+  padding: 16px 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
