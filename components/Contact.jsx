@@ -107,7 +107,7 @@ export default function Contact() {
                                    borderTop:"5px solid transparent",
                                    borderBottom:"5px solid transparent",
                                    borderRight:"6px solid #fffde7" }} />
-                    no muerdo (casi nunca) — mandame un mensaje!
+                    ¡mandame un mensaje!
                   </div>
                 </div>
               </div>
