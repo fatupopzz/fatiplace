@@ -373,3 +373,42 @@ body::before {
   position: relative !important;
   z-index: 1 !important;
 }
+
+/* ══════════════════════════════════
+   MOBILE RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 600px) {
+  body { font-size: 12px !important; }
+
+  .xp-titlebar { font-size: 11px !important; padding: 3px 5px !important; }
+  .xp-titlebar span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+
+  .xp-btn-min, .xp-btn-max, .xp-btn-close {
+    width: 18px !important; height: 18px !important; font-size: 10px !important;
+  }
+
+  .xp-taskbar { height: 26px !important; }
+  .xp-start-btn { font-size: 11px !important; padding: 0 10px 0 6px !important; }
+  .xp-task-btn { padding: 0 5px !important; font-size: 10px !important; height: 19px !important; }
+
+  /* ticker font smaller on mobile */
+  .xp-ticker { font-size: 12px !important; }
+
+  /* windows fill full width with less padding */
+  .xp-window-body { padding: 6px !important; }
+  .xp-groupbox { padding: 12px 8px 8px !important; }
+
+  /* project explorer: list becomes full width on mobile */
+  #projects .xp-listitem { padding: 5px 6px !important; }
+
+  /* contact grid single col already handled by auto-fit */
+
+  /* chibi deco hide on very small screens so it doesn't overlap */
+  @media (max-width: 400px) {
+    .chibi-deco { display: none !important; }
+  }
+}
+
+/* ensure gif bg covers fixed ticker+taskbar */
+section { padding-top: 20px !important; }
+section:first-of-type { padding-top: 54px !important; }

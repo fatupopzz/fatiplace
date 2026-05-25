@@ -28,13 +28,33 @@ export default function Projects() {
   const p = PROJECTS[active];
 
   return (
-    <section id="projects" className="xp-section" style={{ paddingBottom:"32px" }}>
-      <div style={{ maxWidth:"900px", margin:"0 auto", padding:"0 16px" }}>
+    <section id="projects" style={{ padding:"16px 0 24px", position:"relative" }}>
+      <img src="/images/fondo.gif" alt="" style={{
+        position:"absolute", inset:0, width:"100%", height:"100%",
+        objectFit:"cover", opacity:0.15, zIndex:0, pointerEvents:"none"
+      }} />
 
+      {/* chibi deco — bottom left */}
+      <img src="/images/avatar2.png" alt=""
+           className="animate-float-slow"
+           style={{ position:"absolute", bottom:"16px", left:"16px",
+                     width:"48px", opacity:0.8, zIndex:1,
+                     filter:"drop-shadow(1px 2px 2px rgba(0,0,0,0.3))",
+                     animationDelay:"1s" }} />
+
+      {/* ghost deco — top right */}
+      <img src="/images/fantito.png" alt=""
+           className="animate-float"
+           style={{ position:"absolute", top:"14px", right:"18px",
+                     width:"50px", opacity:0.8, zIndex:1,
+                     filter:"drop-shadow(1px 2px 2px rgba(0,0,0,0.3))",
+                     animationDelay:"0.5s" }} />
+
+      <div style={{ maxWidth:"860px", margin:"0 auto", padding:"0 12px", position:"relative", zIndex:2 }}>
         <div>
           <div className="xp-titlebar">
             <img src="/images/estrella.png" alt="" style={{ width:"16px", height:"16px" }} />
-            <span>Explorador de Proyectos — Mis Trabajos</span>
+            <span>Explorador de Proyectos</span>
             <div className="xp-titlebar-buttons">
               <button className="xp-btn-min">_</button>
               <button className="xp-btn-max">□</button>
@@ -45,61 +65,58 @@ export default function Projects() {
           <div className="xp-window">
             {/* toolbar */}
             <div style={{ background:"#ece9d8", borderBottom:"1px solid #aca899",
-                           padding:"3px 6px", display:"flex", gap:"4px", alignItems:"center" }}>
+                           padding:"3px 6px", display:"flex", gap:"4px",
+                           alignItems:"center", flexWrap:"wrap" }}>
               <button className="xp-button" style={{ padding:"1px 8px" }}>
                 <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
                 Atrás
               </button>
-              <button className="xp-button" style={{ padding:"1px 8px" }}>
-                <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                Adelante
-              </button>
-              <div style={{ width:"1px", height:"20px", background:"#aca899", margin:"0 2px" }} />
-              <span style={{ fontSize:"11px", color:"#555" }}>Ubicación:</span>
-              <div style={{ flex:1, background:"white", border:"1px inset #888",
-                             padding:"1px 4px", fontSize:"11px", fontFamily:"Tahoma,Arial,sans-serif" }}>
+              <span style={{ fontSize:"11px", color:"#555", marginLeft:"4px" }}>
                 C:\fatiplace\proyectos\
-              </div>
+              </span>
             </div>
 
-            <div style={{ display:"flex", height:"380px" }}>
-              {/* file list */}
-              <div style={{ width:"200px", flexShrink:0, borderRight:"1px solid #aca899",
-                             overflowY:"auto" }}>
-                {/* sidebar */}
-                <div style={{ background:"#3a6ea5", padding:"8px", color:"white" }}>
-                  <div style={{ fontSize:"11px", fontWeight:"bold", marginBottom:"4px" }}>
+            {/* project list — stacks on mobile */}
+            <div style={{ display:"flex", flexWrap:"wrap" }}>
+
+              {/* sidebar: file list */}
+              <div style={{
+                width:"100%", maxWidth:"200px", flexShrink:0,
+                borderRight:"1px solid #aca899",
+              }}>
+                {/* tasks panel */}
+                <div style={{ background:"#3a6ea5", padding:"8px" }}>
+                  <div style={{ fontSize:"11px", fontWeight:"bold", color:"white", marginBottom:"4px" }}>
                     Tareas del archivo
                   </div>
-                  <div style={{ fontSize:"11px", display:"flex", flexDirection:"column", gap:"3px" }}>
-                    <span style={{ cursor:"pointer", textDecoration:"underline", color:"#aac8f8" }}>
-                      Ver este proyecto
-                    </span>
-                    <span style={{ cursor:"pointer", textDecoration:"underline", color:"#aac8f8" }}>
-                      Abrir en GitHub
-                    </span>
+                  <div style={{ fontSize:"11px", color:"#aac8f8", display:"flex", flexDirection:"column", gap:"2px" }}>
+                    <span style={{ cursor:"pointer", textDecoration:"underline" }}>Ver proyecto</span>
+                    <span style={{ cursor:"pointer", textDecoration:"underline" }}>Abrir en GitHub</span>
                   </div>
                 </div>
-                <div className="xp-listbox" style={{ border:"none" }}>
+                {/* list */}
+                <div style={{ background:"white" }}>
                   {PROJECTS.map((proj, i) => (
                     <div key={proj.id}
-                         className={`xp-listitem ${active===i ? "selected" : ""}`}
+                         className={`xp-listitem${active===i ? " selected" : ""}`}
                          onClick={() => setActive(i)}>
-                      <img src="/images/estrella.png" alt=""
-                           style={{ width:"16px", height:"16px", flexShrink:0 }} />
-                      <div>
-                        <div style={{ fontSize:"11px", fontWeight:"bold",
-                                       color: active===i ? "white" : "#1a1a1a",
-                                       whiteSpace:"nowrap", overflow:"hidden",
-                                       textOverflow:"ellipsis", maxWidth:"130px" }}>
+                      <img src="/images/estrella.png" alt="" style={{ width:"16px", height:"16px", flexShrink:0 }} />
+                      <div style={{ minWidth:0 }}>
+                        <div style={{
+                          fontSize:"11px", fontWeight:"bold",
+                          color: active===i ? "white" : "#1a1a1a",
+                          whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis",
+                          maxWidth:"140px"
+                        }}>
                           {proj.name}
                         </div>
-                        <div style={{ fontSize:"10px",
-                                       background: DIFF_BG[proj.difficulty],
-                                       color: DIFF_CLR[proj.difficulty],
-                                       padding:"0 4px", borderRadius:"2px", display:"inline-block" }}>
-                          {proj.difficulty}
-                          {proj.isFinal && " ★ FINAL"}
+                        <div style={{
+                          fontSize:"10px",
+                          background: DIFF_BG[proj.difficulty],
+                          color: DIFF_CLR[proj.difficulty],
+                          padding:"0 4px", display:"inline-block", borderRadius:"2px"
+                        }}>
+                          {proj.difficulty}{proj.isFinal ? " ★" : ""}
                         </div>
                       </div>
                     </div>
@@ -108,41 +125,39 @@ export default function Projects() {
               </div>
 
               {/* detail pane */}
-              <div style={{ flex:1, padding:"12px", display:"flex", flexDirection:"column", gap:"10px",
-                             overflowY:"auto", background:"white" }}>
-                {/* screenshot */}
-                <div style={{ width:"100%", height:"140px", background:"#ece9d8",
-                               border:"2px inset #888", position:"relative", flexShrink:0 }}>
+              <div style={{ flex:"1 1 220px", padding:"10px",
+                             background:"white", minWidth:0, minHeight:"300px" }}>
+                <div style={{ width:"100%", height:"130px", background:"#ece9d8",
+                               border:"2px inset #888", position:"relative", marginBottom:"10px" }}>
                   <Image src={`/images/${p.id}.png`} alt={p.name} fill
-                         className="object-cover"
+                         style={{ objectFit:"cover" }}
                          onError={e => { e.target.style.display="none"; }} />
                   <div style={{ position:"absolute", inset:0, display:"flex",
                                  alignItems:"center", justifyContent:"center" }}>
                     <img src="/images/estrella.png" alt=""
-                         style={{ width:"40px", height:"40px", opacity:0.25 }} />
+                         style={{ width:"36px", height:"36px", opacity:0.2 }} />
                   </div>
                 </div>
 
-                <div className="xp-groupbox">
+                <div className="xp-groupbox" style={{ marginBottom:"8px" }}>
                   <span className="xp-groupbox-label">
-                    <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px", verticalAlign:"middle" }} />
+                    <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
                     {" "}{p.name}
                   </span>
-                  <div style={{ display:"flex", gap:"4px", marginBottom:"6px" }}>
-                    <span style={{ fontSize:"10px", padding:"1px 6px",
+                  <div style={{ display:"flex", gap:"4px", marginBottom:"6px", flexWrap:"wrap" }}>
+                    <span style={{ fontSize:"10px", padding:"1px 6px", borderRadius:"2px",
                                     background:DIFF_BG[p.difficulty], color:DIFF_CLR[p.difficulty],
-                                    border:"1px solid currentColor", borderRadius:"2px" }}>
+                                    border:"1px solid currentColor" }}>
                       {p.difficulty}
                     </span>
                     {p.isFinal && (
-                      <span style={{ fontSize:"10px", padding:"1px 6px",
-                                      background:"#fff3cd", color:"#856404",
-                                      border:"1px solid #856404", borderRadius:"2px" }}>
+                      <span style={{ fontSize:"10px", padding:"1px 6px", borderRadius:"2px",
+                                      background:"#fff3cd", color:"#856404", border:"1px solid #856404" }}>
                         PROYECTO FINAL
                       </span>
                     )}
                   </div>
-                  <p style={{ fontSize:"11px", lineHeight:"1.5", color:"#333", marginBottom:"8px" }}>
+                  <p style={{ fontSize:"11px", lineHeight:"1.55", color:"#333", marginBottom:"8px" }}>
                     {p.description}
                   </p>
                   <div style={{ display:"flex", flexWrap:"wrap", gap:"3px", marginBottom:"10px" }}>
@@ -153,15 +168,15 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <div style={{ display:"flex", gap:"6px" }}>
+                  <div style={{ display:"flex", gap:"5px", flexWrap:"wrap" }}>
                     <a href={p.repo} target="_blank" rel="noopener noreferrer" className="xp-button">
                       <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                      Abrir repo
+                      Repo
                     </a>
                     {p.deploy && (
                       <a href={p.deploy} target="_blank" rel="noopener noreferrer" className="xp-button">
                         <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                        Ver demo
+                        Demo
                       </a>
                     )}
                   </div>
@@ -170,11 +185,10 @@ export default function Projects() {
             </div>
 
             <div className="xp-statusbar">
-              <div className="xp-statusbar-panel">
-                {PROJECTS.length} objetos
-              </div>
-              <div className="xp-statusbar-panel">
-                Seleccionado: {p.name}
+              <div className="xp-statusbar-panel">{PROJECTS.length} objetos</div>
+              <div className="xp-statusbar-panel" style={{ flex:1, overflow:"hidden",
+                                                             whiteSpace:"nowrap", textOverflow:"ellipsis" }}>
+                {p.name}
               </div>
             </div>
           </div>

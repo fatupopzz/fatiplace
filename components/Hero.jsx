@@ -7,21 +7,26 @@ const TECHS = [
 
 export default function Hero() {
   return (
-    <section id="hero" className="xp-section"
-             style={{ minHeight:"100vh", display:"flex", alignItems:"center",
-                       justifyContent:"center", paddingTop:"48px", paddingBottom:"48px",
-                       position:"relative" }}>
-
+    <section id="hero" style={{
+      minHeight: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      paddingTop: "60px",
+      paddingBottom: "48px",
+      position: "relative",
+    }}>
       <img src="/images/fondo.gif" alt="" style={{
-        position:"absolute", inset:0, width:"100%", height:"100%",
-        objectFit:"cover", opacity:0.15, zIndex:0
+        position: "absolute", inset: 0, width: "100%", height: "100%",
+        objectFit: "cover", opacity: 0.15, zIndex: 0, pointerEvents: "none"
       }} />
 
-      <div style={{ maxWidth:"900px", width:"100%", margin:"0 auto", padding:"0 16px",
-                     display:"flex", flexDirection:"column", gap:"16px",
-                     position:"relative", zIndex:1 }}>
-
-        {/* ── MAIN WINDOW ── */}
+      <div style={{
+        maxWidth: "860px", width: "100%", margin: "0 auto",
+        padding: "0 12px", display: "flex", flexDirection: "column",
+        gap: "14px", position: "relative", zIndex: 1,
+      }}>
+        {/* MAIN WINDOW */}
         <div>
           <div className="xp-titlebar">
             <img src="/images/estrella.png" alt="" style={{ width:"16px", height:"16px" }} />
@@ -32,75 +37,62 @@ export default function Hero() {
               <button className="xp-btn-close">✕</button>
             </div>
           </div>
-
-          <div className="xp-window" style={{ padding:0 }}>
+          <div className="xp-window" style={{ padding: 0 }}>
             {/* menubar */}
-            <div style={{ background:"#ece9d8", borderBottom:"1px solid #aca899",
-                           padding:"2px 8px", display:"flex", gap:"2px" }}>
+            <div className="xp-menubar">
               {["Archivo","Ver","Favoritos","Herramientas","Ayuda"].map(m => (
-                <button key={m}
-                        style={{ background:"transparent", border:"none",
-                                  font:"11px Tahoma,Arial,sans-serif",
-                                  cursor:"pointer", padding:"2px 6px", borderRadius:"2px" }}
-                        onMouseEnter={e => { e.currentTarget.style.background="#3169c6"; e.currentTarget.style.color="white"; }}
-                        onMouseLeave={e => { e.currentTarget.style.background="transparent"; e.currentTarget.style.color=""; }}>
-                  {m}
-                </button>
+                <button key={m} className="xp-menuitem">{m}</button>
               ))}
             </div>
 
-            {/* body */}
-            <div style={{ padding:"16px", display:"flex", gap:"20px", flexWrap:"wrap" }}>
-
-              {/* ── LEFT: avatar ilustrado + ID card ── */}
-              <div style={{ display:"flex", flexDirection:"column", alignItems:"center",
-                             gap:"12px", minWidth:"200px", flex:"0 0 auto" }}>
-
+            {/* body — stacks on mobile */}
+            <div style={{
+              padding: "14px",
+              display: "flex",
+              gap: "18px",
+              flexWrap: "wrap",
+              alignItems: "flex-start",
+            }}>
+              {/* LEFT: avatar + ID card */}
+              <div style={{
+                display: "flex", flexDirection: "column",
+                alignItems: "center", gap: "10px",
+                flex: "0 0 auto", width: "100%", maxWidth: "200px",
+                margin: "0 auto",
+              }}>
                 <img src="/images/logo.png" alt="FATIPLACE"
-                     style={{ width:"100%", maxWidth:"260px",
-                               filter:"drop-shadow(2px 2px 0 rgba(0,0,0,0.3))" }} />
+                     style={{ width:"100%", filter:"drop-shadow(2px 2px 0 rgba(0,0,0,0.3))" }} />
 
-                {/* avatar ilustrado solo */}
                 <div style={{ position:"relative" }}>
-                  <img src="/images/avatar2.png" alt="Fatima Navarro"
+                  <img src="/images/avatar.png" alt="Fatima Navarro"
                        className="animate-float"
-                       style={{ width:"130px", height:"130px", objectFit:"cover",
+                       style={{ width:"120px", height:"120px", objectFit:"cover",
                                  border:"2px inset #aca899",
-                                 boxShadow:"3px 3px 6px rgba(0,0,0,0.3)" }} />
-                  {/* estrella giratoria de decoración */}
-                  <img src="/images/estrella.png" alt=""
-                       className="animate-spin-slow"
-                       style={{ width:"24px", height:"24px", position:"absolute",
-                                 top:"-10px", right:"-10px",
-                                 filter:"drop-shadow(1px 1px 2px rgba(0,0,0,0.4))" }} />
+                                 boxShadow:"3px 3px 6px rgba(0,0,0,0.3)",
+                                 display:"block" }} />
+                  <img src="/images/estrella.png" alt="" className="animate-spin-slow"
+                       style={{ width:"20px", height:"20px", position:"absolute",
+                                 top:"-8px", right:"-8px" }} />
                 </div>
 
-                {/* fantito debajo del avatar */}
-                <img src="/images/fantito.png" alt=""
-                     className="animate-float-slow"
-                     style={{ width:"55px", objectFit:"contain",
-                               filter:"drop-shadow(1px 1px 2px rgba(0,0,0,0.2))",
-                               marginTop:"-4px" }} />
-
                 {/* ID card */}
-                <div style={{ background:"white", border:"1px solid #aca899",
-                               padding:"5px 10px", width:"100%",
-                               borderTop:"3px solid #0058c0", fontSize:"11px",
-                               fontFamily:"Tahoma,Arial,sans-serif" }}>
-                  <div style={{ fontWeight:"bold", color:"#0058c0", marginBottom:"2px" }}>
-                    Fatima Navarro
-                  </div>
+                <div style={{
+                  background:"white", border:"1px solid #aca899",
+                  padding:"5px 10px", width:"100%",
+                  borderTop:"3px solid #0058c0", fontSize:"11px",
+                  fontFamily:"Tahoma,Arial,sans-serif",
+                }}>
+                  <div style={{ fontWeight:"bold", color:"#0058c0", marginBottom:"2px" }}>Fatima Navarro</div>
                   <div style={{ color:"#555" }}>ID: 24044 · CS&IT · UVG</div>
                   <div style={{ color:"#555" }}>Guatemala 🇬🇹</div>
                 </div>
               </div>
 
-              {/* ── RIGHT: info ── */}
-              <div style={{ flex:1, minWidth:"240px", display:"flex", flexDirection:"column", gap:"10px" }}>
-
+              {/* RIGHT: info */}
+              <div style={{ flex:"1 1 220px", display:"flex", flexDirection:"column", gap:"10px" }}>
                 <div className="xp-groupbox">
                   <span className="xp-groupbox-label">Descripción</span>
-                  <p style={{ fontSize:"11px", lineHeight:"1.6", color:"#1a1a1a" }}>
+                  <p style={{ fontSize:"11px", lineHeight:"1.7", color:"#1a1a1a" }}>
                     Desarrolladora y artista. Estudio Ciencias de la Computación en la UVG,
                     dibujo personajes, programo interfaces y customizo mi setup de
                     <strong style={{ color:"#0058c0" }}> Fedora + Hyprland</strong> con demasiado cariño.
@@ -130,7 +122,7 @@ export default function Hero() {
                     <a key={btn.label} href={btn.href} className="xp-button"
                        target={btn.href.startsWith("http") ? "_blank" : undefined}
                        rel={btn.href.startsWith("http") ? "noopener noreferrer" : undefined}>
-                      <img src="/images/estrella.png" alt="" style={{ width:"14px", height:"14px" }} />
+                      <img src="/images/estrella.png" alt="" style={{ width:"13px", height:"13px" }} />
                       {btn.label}
                     </a>
                   ))}
@@ -138,46 +130,26 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* statusbar */}
             <div className="xp-statusbar">
               <div className="xp-statusbar-panel">
-                <img src="/images/estrella.png" alt=""
-                     style={{ width:"12px", height:"12px", verticalAlign:"middle", marginRight:"3px" }} />
+                <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
                 Listo
               </div>
               <div className="xp-statusbar-panel">fatiplace.com</div>
               <div style={{ marginLeft:"auto" }}>
-                <img src="/images/estrella.png" alt=""
-                     className="animate-spin-slow"
-                     style={{ width:"14px", height:"14px" }} />
+                <img src="/images/estrella.png" alt="" className="animate-spin-slow"
+                     style={{ width:"13px", height:"13px" }} />
               </div>
             </div>
           </div>
         </div>
-
-        {/* desktop icons */}
-        <div style={{ display:"flex", gap:"12px", flexWrap:"wrap", justifyContent:"flex-end" }}>
-          {[
-            { label:"Mis Dibujos", href:"#projects" },
-            { label:"Sobre mí",    href:"#about" },
-            { label:"Contactar",   href:"#contact" },
-          ].map(d => (
-            <a key={d.label} href={d.href}
-               style={{ display:"flex", flexDirection:"column", alignItems:"center",
-                         gap:"4px", textDecoration:"none", color:"white",
-                         width:"64px", textAlign:"center", padding:"6px 4px", borderRadius:"3px" }}
-               onMouseEnter={e => e.currentTarget.style.background="rgba(49,105,198,0.5)"}
-               onMouseLeave={e => e.currentTarget.style.background="transparent"}>
-              <img src="/images/estrella.png" alt=""
-                   style={{ width:"36px", height:"36px", objectFit:"contain",
-                             filter:"drop-shadow(1px 1px 2px rgba(0,0,0,0.5))" }} />
-              <span style={{ fontSize:"11px", textShadow:"1px 1px 2px rgba(0,0,0,0.8)",
-                              fontFamily:"Tahoma,Arial,sans-serif" }}>
-                {d.label}
-              </span>
-            </a>
-          ))}
-        </div>
+        {/* fantito deco — floating */}
+      <img src="/images/fantito.png" alt=""
+           className="animate-float"
+           style={{ position:"absolute", bottom:"20px", right:"20px",
+                     width:"52px", opacity:0.85, zIndex:1,
+                     filter:"drop-shadow(1px 2px 2px rgba(0,0,0,0.3))",
+                     pointerEvents:"none" }} />
       </div>
     </section>
   );
