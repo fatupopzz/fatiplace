@@ -1,16 +1,18 @@
 "use client";
 
 const LEARNED = [
-  { label:"HTML & CSS",      desc:"Estructura y estilos desde cero" },
-  { label:"JavaScript",      desc:"Lógica, DOM y APIs" },
-  { label:"React & Next.js", desc:"Componentes, rutas y App Router" },
-  { label:"Node.js",         desc:"Backend y servidores con Express" },
-  { label:"Deployment",      desc:"Nginx, Vercel y hosting real" },
+  { label: "HTML & CSS", desc: "Estructura y estilos desde cero", pct: 90 },
+  { label: "JavaScript", desc: "Lógica, DOM y APIs", pct: 85 },
+  { label: "React & Next.js", desc: "Componentes, rutas y App Router", pct: 80 },
+  { label: "Node.js", desc: "Backend y servidores con Express", pct: 75 },
+  { label: "Deployment", desc: "Nginx, Vercel y hosting real", pct: 70 },
 ];
+
 const INTERESTS = [
-  "Frontend & UI/UX","Linux & Sistemas","Mobile Dev",
-  "Bases de Datos","Open Source","Pixel Art & Diseño",
+  "Frontend & UI/UX", "Linux & Sistemas", "Mobile Dev",
+  "Bases de Datos", "Open Source", "Pixel Art & Diseño",
 ];
+
 const LEARNING = [
   "Three.js & animaciones 3D",
   "Kotlin avanzado / Jetpack Compose",
@@ -20,164 +22,154 @@ const LEARNING = [
 
 export default function About() {
   return (
-    <section id="about" style={{ padding:"16px 0 24px", position:"relative" }}>
-      {/* fondo gif continuo */}
-      <img src="/images/fondo.gif" alt="" style={{
-        position:"absolute", inset:0, width:"100%", height:"100%",
-        objectFit:"cover", opacity:0.15, zIndex:0, pointerEvents:"none"
-      }} />
-
-      {/* fantito decoración — top right */}
-      <img src="/images/avatar2.png" alt=""
-           className="animate-float"
-           style={{ position:"absolute", top:"12px", right:"16px",
-                     width:"52px", opacity:0.85, zIndex:1,
-                     filter:"drop-shadow(1px 2px 2px rgba(0,0,0,0.3))" }} />
-
-      {/* ghost deco — bottom left */}
-      <img src="/images/fantito.png" alt=""
-           className="animate-float-slow"
-           style={{ position:"absolute", bottom:"12px", left:"16px",
-                     width:"48px", opacity:0.8, zIndex:1,
-                     filter:"drop-shadow(1px 2px 2px rgba(0,0,0,0.3))",
-                     animationDelay:"1.2s" }} />
-
-      <div style={{ maxWidth:"860px", margin:"0 auto", padding:"0 12px", position:"relative", zIndex:2 }}>
-        <div>
-          <div className="xp-titlebar">
-            <img src="/images/estrella.png" alt="" style={{ width:"16px", height:"16px" }} />
-            <span>Sobre mí — Fatima Navarro — Propiedades</span>
-            <div className="xp-titlebar-buttons">
-              <button className="xp-btn-min">_</button>
-              <button className="xp-btn-max">□</button>
-              <button className="xp-btn-close">✕</button>
+    <section id="about" style={{ padding: "24px 0 32px" }}>
+      <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 16px" }}>
+        <div className="term-window">
+          <div className="term-header">
+            <div className="term-dots">
+              <div className="term-dot term-dot--red" />
+              <div className="term-dot term-dot--yellow" />
+              <div className="term-dot term-dot--green" />
             </div>
+            <span className="term-title">about.sh - fati@archlinux</span>
           </div>
 
-          <div className="xp-window">
-            {/* tabs */}
-            <div style={{ display:"flex", borderBottom:"1px solid #aca899",
-                           background:"#d4d0c8", paddingTop:"4px",
-                           overflowX:"auto" }}>
-              {["General","Habilidades","Intereses","Siguiente nivel"].map((tab, i) => (
-                <div key={tab} style={{
-                  padding:"3px 12px 3px", whiteSpace:"nowrap",
-                  fontFamily:"Tahoma,Arial,sans-serif", fontSize:"11px",
-                  background: i===0 ? "#ece9d8" : "linear-gradient(to bottom,#d8d4cc,#c8c4bc)",
-                  border:"1px solid #aca899",
-                  borderBottom: i===0 ? "1px solid #ece9d8" : "1px solid #aca899",
-                  marginBottom: i===0 ? "-1px" : "0",
-                  cursor:"default", fontWeight: i===0 ? "bold" : "normal",
-                }}>
-                  {tab}
-                </div>
-              ))}
+          <div className="term-body">
+            {/* whoami */}
+            <div style={{ marginBottom: "20px" }}>
+              <div style={{ marginBottom: "8px" }}>
+                <span style={{ color: "#00cccc" }}>fati@archlinux</span>
+                <span style={{ color: "#555" }}>:</span>
+                <span style={{ color: "#3399ff" }}>~</span>
+                <span style={{ color: "#555" }}> $ </span>
+                <span className="glow">./about.sh --verbose</span>
+              </div>
+
+              <div style={{
+                color: "#cccccc", lineHeight: "1.8",
+                borderLeft: "2px solid #1a3a1a", paddingLeft: "16px",
+              }}>
+                <p>
+                  Soy <span style={{ color: "#33ff33", fontWeight: "bold" }}>Fátima Navarro</span>,
+                  estudiante de Ciencias de la Computación en la{" "}
+                  <span style={{ color: "#cccc00" }}>Universidad del Valle de Guatemala</span>.
+                </p>
+                <p style={{ marginTop: "6px" }}>
+                  Me apasiona construir interfaces que combinen buen diseño con código limpio.
+                  Cuando no estoy programando, estoy customizando mi setup de{" "}
+                  <span style={{ color: "#cc66cc" }}>Fedora + Hyprland</span>{" "}
+                  o jugando en mi Switch OLED.
+                </p>
+                <p style={{ marginTop: "6px" }}>
+                  También desarrollo en Android con <span style={{ color: "#ff9933" }}>Kotlin</span>,
+                  trabajo con <span style={{ color: "#3399ff" }}>PostgreSQL</span>{" "}
+                  y disfruto el proceso completo desde Figma hasta el deploy.
+                </p>
+              </div>
             </div>
 
-            {/* responsive grid: 1 col on mobile, 2 on desktop */}
-            <div style={{
-              padding:"12px",
-              display:"grid",
-              gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))",
-              gap:"12px",
-            }}>
-              {/* col 1 */}
-              <div style={{ display:"flex", flexDirection:"column", gap:"10px" }}>
-                <div className="xp-groupbox">
-                  <span className="xp-groupbox-label">
-                    <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                    Player Info
-                  </span>
-                  <p style={{ fontSize:"11px", lineHeight:"1.65" }}>
-                    Soy <strong>Fatima Navarro</strong>, estudiante de Ciencias de la Computación en la
-                    Universidad del Valle de Guatemala. Me apasiona construir interfaces que combinen
-                    buen diseño con código limpio. Cuando no estoy programando, estoy customizando mi
-                    setup de <strong>Fedora + Hyprland</strong> o jugando en mi Switch OLED. También desarrollo
-                    en Android con Kotlin, trabajo con PostgreSQL y disfruto el proceso completo desde Figma hasta el deploy.
-                  </p>
+            <hr className="term-divider" />
+
+            {/* Skills with progress bars */}
+            <div style={{ marginBottom: "20px" }}>
+              <div style={{ marginBottom: "12px" }}>
+                <span style={{ color: "#00cccc" }}>fati@archlinux</span>
+                <span style={{ color: "#555" }}>:</span>
+                <span style={{ color: "#3399ff" }}>~</span>
+                <span style={{ color: "#555" }}> $ </span>
+                <span className="glow">htop --skills</span>
+              </div>
+
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gap: "16px",
+              }}>
+                {/* Skills column */}
+                <div>
+                  <div style={{ color: "#cccc00", marginBottom: "10px", fontSize: "13px" }}>
+                    # Skill levels
+                  </div>
+                  {LEARNED.map((item) => (
+                    <div key={item.label} style={{ marginBottom: "10px" }}>
+                      <div style={{
+                        display: "flex", justifyContent: "space-between",
+                        marginBottom: "3px", fontSize: "13px",
+                      }}>
+                        <span style={{ color: "#33ff33" }}>{item.label}</span>
+                        <span style={{ color: "#555" }}>{item.pct}%</span>
+                      </div>
+                      <div className="progress-bar">
+                        <div className="progress-bar-fill" style={{ width: `${item.pct}%` }} />
+                      </div>
+                      <div style={{ color: "#555", fontSize: "11px", marginTop: "2px" }}>
+                        {item.desc}
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="xp-groupbox">
-                  <span className="xp-groupbox-label">
-                    <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                    En este curso aprendí
-                  </span>
-                  <div style={{ display:"flex", flexDirection:"column", gap:"5px" }}>
-                    {LEARNED.map(item => (
-                      <div key={item.label} style={{
-                        display:"flex", alignItems:"flex-start", gap:"6px",
-                        fontSize:"11px", borderBottom:"1px solid #d4d0c8", paddingBottom:"4px"
+                {/* Right column */}
+                <div>
+                  {/* Interests */}
+                  <div style={{ marginBottom: "16px" }}>
+                    <div style={{ color: "#cccc00", marginBottom: "10px", fontSize: "13px" }}>
+                      # Intereses
+                    </div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                      {INTERESTS.map((i) => (
+                        <span key={i} className="term-tag">{i}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Learning */}
+                  <div style={{ marginBottom: "16px" }}>
+                    <div style={{ color: "#cccc00", marginBottom: "10px", fontSize: "13px" }}>
+                      # Next level (aprendiendo)
+                    </div>
+                    {LEARNING.map((l) => (
+                      <div key={l} style={{
+                        display: "flex", gap: "8px", alignItems: "center",
+                        fontSize: "13px", padding: "4px 0",
+                        borderBottom: "1px solid rgba(51,255,51,0.05)",
                       }}>
-                        <img src="/images/estrella.png" alt="" style={{ width:"14px", height:"14px", flexShrink:0, marginTop:"1px" }} />
-                        <div>
-                          <div style={{ fontWeight:"bold" }}>{item.label}</div>
-                          <div style={{ color:"#555" }}>{item.desc}</div>
-                        </div>
+                        <span style={{ color: "#ff9933" }}>-&gt;</span>
+                        <span style={{ color: "#cccccc" }}>{l}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div>
+                    <div style={{ color: "#cccc00", marginBottom: "10px", fontSize: "13px" }}>
+                      # Stats
+                    </div>
+                    {[
+                      { k: "Uptime", v: "2+ años codeando" },
+                      { k: "Processes", v: "10+ proyectos" },
+                      { k: "Commits", v: "infinity" },
+                      { k: "Coffee", v: "9001 tazas" },
+                    ].map((row) => (
+                      <div key={row.k} style={{
+                        display: "flex", marginBottom: "2px", fontSize: "13px",
+                      }}>
+                        <span style={{ color: "#33ff33", width: "120px", flexShrink: 0 }}>{row.k}:</span>
+                        <span style={{ color: "#cccccc" }}>{row.v}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-
-              {/* col 2 */}
-              <div style={{ display:"flex", flexDirection:"column", gap:"10px" }}>
-                <div className="xp-groupbox">
-                  <span className="xp-groupbox-label">
-                    <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                    Intereses
-                  </span>
-                  <div style={{ display:"flex", flexWrap:"wrap", gap:"5px" }}>
-                    {INTERESTS.map(i => (
-                      <span key={i} className="xp-tag">
-                        <img src="/images/estrella.png" alt="" style={{ width:"10px", height:"10px" }} />
-                        {i}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="xp-groupbox">
-                  <span className="xp-groupbox-label">
-                    <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                    Next level
-                  </span>
-                  {LEARNING.map(l => (
-                    <div key={l} style={{
-                      display:"flex", gap:"5px", alignItems:"center",
-                      fontSize:"11px", padding:"3px 0", borderBottom:"1px dotted #ccc"
-                    }}>
-                      <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                      {l}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="xp-groupbox">
-                  <span className="xp-groupbox-label">Estadísticas</span>
-                  <table style={{ width:"100%", fontSize:"11px", borderCollapse:"collapse" }}>
-                    <tbody>
-                      {[
-                        { k:"Años codeando",          v:"2+" },
-                        { k:"Proyectos completados",  v:"10+" },
-                        { k:"Commits en Git",         v:"∞" },
-                        { k:"Café consumido",         v:"9001 tazas" },
-                      ].map(row => (
-                        <tr key={row.k} style={{ borderBottom:"1px solid #d4d0c8" }}>
-                          <td style={{ padding:"3px 4px", color:"#555" }}>{row.k}</td>
-                          <td style={{ padding:"3px 4px", fontWeight:"bold", color:"#0058c0" }}>{row.v}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
             </div>
 
-            <div className="xp-statusbar">
-              <div className="xp-statusbar-panel">
-                <img src="/images/estrella.png" alt="" style={{ width:"12px", height:"12px" }} />
-                2 secciones
-              </div>
+            {/* Cursor */}
+            <div style={{ marginTop: "8px" }}>
+              <span style={{ color: "#00cccc" }}>fati@archlinux</span>
+              <span style={{ color: "#555" }}>:</span>
+              <span style={{ color: "#3399ff" }}>~</span>
+              <span style={{ color: "#555" }}> $ </span>
+              <span className="cursor" />
             </div>
           </div>
         </div>
